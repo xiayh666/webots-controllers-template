@@ -23,14 +23,14 @@ int main(int argc, char **argv) {
   auto mainTask = [&robot, &d]() {
     auto *pc = robot.getPointCloud();
     if (abs(pc->x) < INFINITY) {
-      for (size_t i = 0; i < robot.getLidar().getNumberOfPoints(); i++) {
-        std::cout << "x: " << pc->x << std::endl;
-        std::cout << "y: " << pc->y << std::endl;
-        std::cout << "z: " << pc->z << std::endl;
-      }
+      // for (size_t i = 0; i < robot.getLidar().getNumberOfPoints(); i++) {
+      //   std::cout << "x: " << pc->x << std::endl;
+      //   std::cout << "y: " << pc->y << std::endl;
+      //   std::cout << "z: " << pc->z << std::endl;
+      // }
     }
 
-    // robot.send(d);
+    robot.send(d);
   };
   robot.mainloop(mainTask);
 

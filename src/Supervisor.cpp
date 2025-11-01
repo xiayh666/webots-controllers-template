@@ -72,7 +72,7 @@ void Supervisor::setVelocity(webots::Node* robot_node, double angle, double spee
 }
 
 
-const DATA Supervisor::unpack() {
+const DATA Supervisor::receive() {
     auto receiver = getReceiver("receiver");
     auto data = *static_cast<const DATA*>(receiver.getData());
     receiver.nextPacket();

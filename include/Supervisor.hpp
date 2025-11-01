@@ -48,7 +48,7 @@ public:
     void mainloop(std::function<void(void)> main);
     void setVelocity(webots::Node* robot_node, double angle, double speed);
 
-    const DATA unpack();
+    const DATA receive();
 
 };
 

@@ -24,22 +24,22 @@ int main(int argc, char **argv) {
     auto receiver = supervisor.getReceiver("receiver");
     DATA data;
 
-      int key = keyboard.getKey(); 
-      constexpr double speed = 1;
-      if (key == 'W') {
-        data = {0, speed};
-      }
-      if (key == 'S') {
-        data = {180*3.14/180, speed};
-      } 
-      if (key == 'A') {
-        data = {-90*3.14/180, -speed};
-      }
-      if (key == 'D') {
-        data = {90*3.14/180, -speed};
-      }
+    int key = keyboard.getKey();
+    constexpr double speed = 1;
+    if (key == 'W') {
+      data = {0, speed};
+    }
+    if (key == 'S') {
+      data = {180 * 3.14 / 180, speed};
+    }
+    if (key == 'A') {
+      data = {-90 * 3.14 / 180, -speed};
+    }
+    if (key == 'D') {
+      data = {90 * 3.14 / 180, -speed};
+    }
     if (receiver.getQueueLength() > 0) {
-      data = supervisor.unpack();  
+      data = supervisor.receive();
     }
 
     supervisor.setVelocity(r1, data.x, data.y);
